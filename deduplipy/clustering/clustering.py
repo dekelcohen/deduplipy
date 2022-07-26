@@ -18,7 +18,20 @@ def hierarchical_clustering(scored_pairs_table: pd.DataFrame, col_names: List,
 
     Args:
         scored_pairs_table: Pandas dataframe containg all pairs and the similarity probability score
-        col_names: name to use for deduplication
+        The left part of the match columns postfix is _1, the right _2, score col 0-1
+        name_1                                          lucille richardst
+        suburb_1                                               kannapolis
+        postcode_1                                                  28o81
+        row_number_1                                                    1
+        fingerprint                                                 luc:0
+        name_2                                           lucille richards
+        suburb_2                                               kannapolis
+        postcode_2                                                  28081
+        row_number_2                                                 1194
+        similarities    [93.04606621409849, 93.04606621409849, 86.4664...
+        score                                                    0.796674
+        
+        col_names: name to use for deduplication - ex: ['name', 'suburb', 'postcode']
         cluster_threshold: threshold to apply in hierarchical clustering
         fill_missing: whether to impute missing values in the adjacency matrix using softimpute, otherwise missing
             values in the adjacency matrix are filled with zeros
